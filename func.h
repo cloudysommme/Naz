@@ -7,4 +7,3 @@ public:
 };
 
 #endif
-// n: number of terms to sum in the infinite sequence

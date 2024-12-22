@@ -1,5 +1,5 @@
 #include "func.h"
-
+#include <cmath>
 double Func::FuncA(int n) {
     double result = 0;
     for (int i = 1; i <= n; ++i) {

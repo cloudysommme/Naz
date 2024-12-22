@@ -3,7 +3,7 @@
 
 int main() {
     Func f;
-    std::cout << f.FuncA() << std::endl;
+    std::cout << f.FuncA(3) << std::endl;
     return 0;
 }
 

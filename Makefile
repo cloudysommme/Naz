@@ -5,6 +5,9 @@ OBJECTS = main.o func.o test_func.o
 EXEC = program
 TEST_EXEC = test_program
 
+check: test_program
+	./test_program
+
 all: $(EXEC) $(TEST_EXEC)
 
 $(EXEC): main.o func.o
@@ -18,6 +21,3 @@ $(TEST_EXEC): test_func.o func.o
 
 clean:
 	rm -f $(OBJECTS) $(EXEC) $(TEST_EXEC)
-
-test: $(TEST_EXEC)
-	./$(TEST_EXEC)

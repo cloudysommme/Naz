@@ -1,29 +1,28 @@
-name: Build C++ program
+name: Build and Test C++ Program
 
 on:
   push:
     branches:
-      - main
-      - branchMake
+      - branchAutoPackage
   pull_request:
     branches:
-      - main
-      - branchMake
+      - branchAutoPackage
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-    - name: Set up GCC
-      uses: actions/setup-toolchain@v1
-      with:
-        toolchain: gcc
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential cmake libgtest-dev
 
-    - name: Build program
+    - name: Build and Test
       run: |
+        mkdir -p build
+        cd build
+        cmake ..
         make
-
+        make check

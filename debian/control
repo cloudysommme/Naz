@@ -1,0 +1,14 @@
+Source: myprogram
+Section: utils
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper (>= 12), g++ 
+Standards-Version: 4.5.0
+Homepage: http://example.com
+
+Package: myprogram
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A simple C++ program
+ This is a simple program that does something useful.
+

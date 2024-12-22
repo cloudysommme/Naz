@@ -1,0 +1,25 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches:
+      - branchAutoTest
+  pull_request:
+    branches:
+      - branchAutoTest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get install -y g++ make
+
+    - name: Build and run tests
+      run: |
+        make check
+

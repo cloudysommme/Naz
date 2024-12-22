@@ -1,0 +1,29 @@
+name: Build C++ program
+
+on:
+  push:
+    branches:
+      - main
+      - branchMake
+  pull_request:
+    branches:
+      - main
+      - branchMake
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up GCC
+      uses: actions/setup-toolchain@v1
+      with:
+        toolchain: gcc
+
+    - name: Build program
+      run: |
+        make
+
